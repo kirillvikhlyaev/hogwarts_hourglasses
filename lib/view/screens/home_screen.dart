@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hogwarts_hourglasses/controller/score_controller.dart';
 import 'package:hogwarts_hourglasses/core/constants.dart';
-import 'package:hogwarts_hourglasses/view/widgets/hourglass_widget.dart';
+import 'package:hogwarts_hourglasses/view/widgets/main_hourglass_widget.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -26,10 +26,10 @@ class HomeScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            HourglassWidget(house: c.slytherin),
-            HourglassWidget(house: c.ravenclaw),
-            HourglassWidget(house: c.gryffindor),
-            HourglassWidget(house: c.hufflepuff)
+            MainHourglassWidget(house: c.slytherin),
+            MainHourglassWidget(house: c.ravenclaw),
+            MainHourglassWidget(house: c.gryffindor),
+            MainHourglassWidget(house: c.hufflepuff)
           ],
         ),
       ),
