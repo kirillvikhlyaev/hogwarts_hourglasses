@@ -1,66 +1,59 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:hogwarts_hourglasses/view/screens/home_screen.dart';
+import 'package:hogwarts_hourglasses/controller/score_controller.dart';
+import 'package:hogwarts_hourglasses/core/constants.dart';
+import 'package:hogwarts_hourglasses/models/hourglass_model.dart';
 import 'package:hogwarts_hourglasses/view/screens/house_screen.dart';
+import 'package:provider/provider.dart';
 
 class HourglassWidget extends StatelessWidget {
   const HourglassWidget({Key? key, required this.house}) : super(key: key);
-  final House house;
-
-  Image getImage(House house) {
-    switch (house) {
-      case House.Gryffindor:
-        return Image.network(
-            'https://static.wikia.nocookie.net/harrypotter/images/0/01/Gryffindor.png/revision/latest?cb=20150807113230&path-prefix=ru');
-      case House.Hufflepuff:
-        return Image.network(
-            'https://static.wikia.nocookie.net/harrypotter/images/c/c9/Hufflepuff.png/revision/latest?cb=20150807113309&path-prefix=ru');
-      case House.Ravenclaw:
-        return Image.network(
-            'https://static.wikia.nocookie.net/harrypotter/images/b/b8/Ravenclaw1.png/revision/latest?cb=20150807113300&path-prefix=ru');
-      case House.Slytherin:
-        return Image.network(
-            'https://static.wikia.nocookie.net/harrypotter/images/f/fe/Slytherin_.png/revision/latest/scale-to-width-down/350?cb=20210801142751&path-prefix=ru');
-    }
-  }
-
-  Color getColor(House house) {
-    switch (house) {
-      case House.Gryffindor:
-        return Colors.red[700]!;
-      case House.Hufflepuff:
-        return Colors.orange[700]!;
-      case House.Ravenclaw:
-        return Colors.blue[700]!;
-      case House.Slytherin:
-        return Colors.teal[700]!;
-    }
-  }
+  final HourglassModel house;
 
   @override
   Widget build(BuildContext context) {
+    final c = Provider.of<ScoreController>(context);
+
+    final scoreBarHeight = MediaQuery.of(context).size.height / 2;
+    final scoreBarFilledHeight = scoreBarHeight * (house.score / 100);
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width / 7,
+          height: MediaQuery.of(context).size.width / 7,
+          child: c.getImage(house),
+        ),
         InkWell(
             onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => HouseScreen(house: house)),
                 ),
-            child: Container(
-              width: 60,
-              height: MediaQuery.of(context).size.height / 3,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                color: getColor(house),
-              ),
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Container(
+                  width: 60,
+                  height: scoreBarHeight,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                    color: AppColors.emptyBar,
+                  ),
+                ),
+                Container(
+                  width: 60,
+                  height: scoreBarFilledHeight,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                    color: c.getColor(house),
+                  ),
+                ),
+              ],
             )),
-        SizedBox(
-          width: 50,
-          height: 50,
-          child: getImage(house),
+        Text(
+          '${c.getScore(house)}',
+          style: const TextStyle(fontSize: 21),
         ),
       ],
     );

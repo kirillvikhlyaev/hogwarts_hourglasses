@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hogwarts_hourglasses/controller/score_controller.dart';
+import 'package:hogwarts_hourglasses/core/constants.dart';
 import 'package:hogwarts_hourglasses/view/screens/home_screen.dart';
+import 'package:hogwarts_hourglasses/view/screens/splash_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,12 +14,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Hogwarts Hourglasses',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider(
+      create: (_) => ScoreController(),
+      child: MaterialApp(
+        title: Names.appName,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const SplashScreen(),
       ),
-      home: const HomeScreen(),
     );
   }
 }

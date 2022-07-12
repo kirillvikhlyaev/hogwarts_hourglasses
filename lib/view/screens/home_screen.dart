@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:hogwarts_hourglasses/controller/score_controller.dart';
+import 'package:hogwarts_hourglasses/core/constants.dart';
 import 'package:hogwarts_hourglasses/view/widgets/hourglass_widget.dart';
-
-enum House {
-  Gryffindor,
-  Hufflepuff,
-  Ravenclaw,
-  Slytherin,
-}
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final c = Provider.of<ScoreController>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal[800],
+        backgroundColor: AppColors.appColor,
         centerTitle: true,
-        title: const Text(
-          'Hogwarts Hourglasses',
-          style: TextStyle(
+        title: Text(
+          Names.appName,
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
@@ -29,18 +26,10 @@ class HomeScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            HourglassWidget(
-              house: House.Slytherin,
-            ),
-            HourglassWidget(
-              house: House.Ravenclaw,
-            ),
-            HourglassWidget(
-              house: House.Hufflepuff,
-            ),
-            HourglassWidget(
-              house: House.Gryffindor,
-            ),
+            HourglassWidget(house: c.slytherin),
+            HourglassWidget(house: c.ravenclaw),
+            HourglassWidget(house: c.gryffindor),
+            HourglassWidget(house: c.hufflepuff)
           ],
         ),
       ),
