@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hogwarts_hourglasses/controller/api_handler.dart';
+import 'package:hogwarts_hourglasses/controller/score_controller.dart';
 import 'package:hogwarts_hourglasses/core/constants.dart';
 import 'package:hogwarts_hourglasses/view/screens/home_screen.dart';
+import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -13,11 +16,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
     Future.delayed(
         const Duration(milliseconds: 5000),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const HomeScreen())));
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => HomeScreen())));
   }
 
   @override

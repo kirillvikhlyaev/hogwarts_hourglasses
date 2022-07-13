@@ -1,26 +1,39 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:hogwarts_hourglasses/controller/api_handler.dart';
 import 'package:hogwarts_hourglasses/core/constants.dart';
 import 'package:hogwarts_hourglasses/models/hourglass_model.dart';
 
 class ScoreController with ChangeNotifier {
-  var slytherin = HourglassModel(
-    name: Names.slytherin,
-    score: 0,
-  );
-  var ravenclaw = HourglassModel(
-    name: Names.ravenclaw,
-    score: 0,
-  );
-  var gryffindor = HourglassModel(
-    name: Names.gryffindor,
-    score: 0,
-  );
-  var hufflepuff = HourglassModel(
-    name: Names.hufflepuff,
-    score: 0,
-  );
+  final api = ApiHandler();
+  List<HourglassModel> houses = [
+    HourglassModel(
+      id: 0,
+      name: Names.slytherin,
+      score: 0,
+    ),
+    HourglassModel(
+      id: 1,
+      name: Names.ravenclaw,
+      score: 0,
+    ),
+    HourglassModel(
+      id: 2,
+      name: Names.gryffindor,
+      score: 0,
+    ),
+    HourglassModel(
+      id: 3,
+      name: Names.hufflepuff,
+      score: 0,
+    )
+  ];
+
+  void getInfoFromServer() async {
+    houses = await api.fetchData();
+    notifyListeners();
+  }
 
   void addPoints(int howMuch, HourglassModel house) {
     if (house.score + howMuch <= 100) {
@@ -29,6 +42,7 @@ class ScoreController with ChangeNotifier {
       house.score = 100;
     }
     log('${house.score}');
+    api.updateData(house);
     notifyListeners();
   }
 
@@ -39,6 +53,8 @@ class ScoreController with ChangeNotifier {
       house.score = 0;
     }
     log('${house.score}');
+
+    api.updateData(house);
     notifyListeners();
   }
 

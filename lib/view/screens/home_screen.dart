@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:hogwarts_hourglasses/controller/api_handler.dart';
 import 'package:hogwarts_hourglasses/controller/score_controller.dart';
 import 'package:hogwarts_hourglasses/core/constants.dart';
 import 'package:hogwarts_hourglasses/view/widgets/main_hourglass_widget.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final c = Provider.of<ScoreController>(context);
+    c.getInfoFromServer();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.appColor,
@@ -26,10 +28,10 @@ class HomeScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            MainHourglassWidget(house: c.slytherin),
-            MainHourglassWidget(house: c.ravenclaw),
-            MainHourglassWidget(house: c.gryffindor),
-            MainHourglassWidget(house: c.hufflepuff)
+            MainHourglassWidget(house: c.houses[0]),
+            MainHourglassWidget(house: c.houses[1]),
+            MainHourglassWidget(house: c.houses[2]),
+            MainHourglassWidget(house: c.houses[3])
           ],
         ),
       ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hogwarts_hourglasses/controller/score_controller.dart';
 import 'package:hogwarts_hourglasses/core/constants.dart';
-import 'package:hogwarts_hourglasses/view/screens/home_screen.dart';
 import 'package:hogwarts_hourglasses/view/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: Names.appName,
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.indigo,
         ),
         home: const SplashScreen(),
       ),
