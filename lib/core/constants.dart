@@ -19,7 +19,7 @@ class Names {
   static String gryffindor = 'Gryffindor';
   static String hufflepuff = 'Hufflepuff';
 
-  static String apiUrl = 'http://192.168.56.1:8080/houses';
+  static String apiUrl = 'http://192.168.56.1:8080';
 }
 
 class Images {

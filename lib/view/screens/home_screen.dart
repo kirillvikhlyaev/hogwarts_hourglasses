@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hogwarts_hourglasses/controller/api_handler.dart';
 import 'package:hogwarts_hourglasses/controller/score_controller.dart';
 import 'package:hogwarts_hourglasses/core/constants.dart';
 import 'package:hogwarts_hourglasses/view/widgets/main_hourglass_widget.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

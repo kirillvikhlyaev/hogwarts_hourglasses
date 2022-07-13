@@ -62,18 +62,18 @@ class ScoreController with ChangeNotifier {
     return house.score;
   }
 
-  Image getImage(HourglassModel house) {
+  String getImage(HourglassModel house) {
     switch (house.name) {
       case 'Gryffindor':
-        return Image.network(Images.gryffindor);
+        return Images.gryffindor;
       case 'Hufflepuff':
-        return Image.network(Images.hufflepuff);
+        return Images.hufflepuff;
       case 'Ravenclaw':
-        return Image.network(Images.ravenclaw);
+        return Images.ravenclaw;
       case 'Slytherin':
-        return Image.network(Images.slytherin);
+        return Images.slytherin;
       default:
-        return Image.network(Images.emptyLogo);
+        return Images.emptyLogo;
     }
   }
 

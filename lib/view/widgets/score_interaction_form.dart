@@ -9,7 +9,7 @@ final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 TextEditingController editController = TextEditingController();
 
 class ScoreForm extends StatelessWidget {
-  ScoreForm({Key? key, required this.house}) : super(key: key);
+  const ScoreForm({Key? key, required this.house}) : super(key: key);
   final HourglassModel house;
 
   @override
