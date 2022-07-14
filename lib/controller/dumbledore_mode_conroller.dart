@@ -5,10 +5,16 @@ import 'package:hogwarts_hourglasses/models/info.dart';
 class DumbledoreModeController with ChangeNotifier {
   final api = ApiHandler();
 
-  Info info = Info(guid: 0, deviceInfo: "");
+  List<Info> infoList = [
+    Info(
+      guid: 0,
+      deviceInfo: "",
+      dateTime: DateTime.fromMicrosecondsSinceEpoch(0),
+    ),
+  ];
 
   void updateData() async {
-    info = await api.fetchStats();
+    infoList = await api.fetchStats();
     notifyListeners();
   }
 }

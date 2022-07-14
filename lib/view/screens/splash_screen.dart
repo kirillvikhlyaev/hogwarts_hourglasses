@@ -17,15 +17,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    // Future.delayed(
-    //     const Duration(milliseconds: 5000),
-    //     () => Navigator.pushReplacement(
-    //         context, MaterialPageRoute(builder: (context) => HomeScreen())));
-  }
-
   List<String> houses = [
     Names.slytherin,
     Names.ravenclaw,
@@ -92,28 +83,31 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const SizedBox(height: 15),
             ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.white),
-                  shape: MaterialStateProperty.all(const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20)))),
-                  padding: MaterialStateProperty.all(
-                    const EdgeInsets.symmetric(vertical: 14.0, horizontal: 35),
-                  ),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.white),
+                shape: MaterialStateProperty.all(const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20)))),
+                padding: MaterialStateProperty.all(
+                  const EdgeInsets.symmetric(vertical: 14.0, horizontal: 35),
                 ),
-                onPressed: () {
-                  if (_splashScreenFormKey.currentState!.validate()) {
-                    storageController.saveToStorage();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeScreen()));
-                  }
-                },
-                child: const Text('Log In',
-                    style: TextStyle(
-                        color: Colors.indigo,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold)))
+              ),
+              onPressed: () {
+                if (_splashScreenFormKey.currentState!.validate()) {
+                  storageController.saveToStorage(currentHouse);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                }
+              },
+              child: const Text(
+                'Log In',
+                style: TextStyle(
+                    color: Colors.indigo,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
           ],
         ),
       ),

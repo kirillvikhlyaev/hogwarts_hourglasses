@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => ScoreController(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: Names.appName,
         theme: ThemeData(
           primarySwatch: Colors.indigo,
