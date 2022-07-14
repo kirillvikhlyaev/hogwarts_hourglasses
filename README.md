@@ -1,5 +1,5 @@
 # Песочные часы факультетов Хогвартса
-<center><img src="/helpers/app.gif"/></center>
+<img src="/helpers/app.gif" align="center"/>
 <br>
 <h2>20 очков Гриффиндору!</h2>
 <p>Что реализовано?</p>
