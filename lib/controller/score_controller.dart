@@ -41,8 +41,9 @@ class ScoreController with ChangeNotifier {
     } else {
       house.score = 100;
     }
-    log('${house.score}');
+    // log('${house.score}');
     api.updateData(house);
+
     notifyListeners();
   }
 
@@ -52,9 +53,10 @@ class ScoreController with ChangeNotifier {
     } else {
       house.score = 0;
     }
-    log('${house.score}');
+    // log('${house.score}');
 
     api.updateData(house);
+
     notifyListeners();
   }
 

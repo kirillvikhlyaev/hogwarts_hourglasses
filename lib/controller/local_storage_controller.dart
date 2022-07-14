@@ -22,7 +22,8 @@ class LocalStorageController {
         dateTime: DateTime.now());
 
     final result = await prefs.setString(houseName, info.toString());
+
     api.addStats(info);
-    log('Данные сохранились: ${result.toString()}');
+    // log('Данные сохранились: ${result.toString()}');
   }
 }

@@ -31,7 +31,6 @@ dependencies:
     sdk: flutter
   provider: ^6.0.3 # Упрощаем инхериты
   http: ^0.13.4 # Работа с сетью
-  cached_network_image: ^3.2.1 # Подкгрузка и кэширование логотипов
   device_info_plus: ^4.0.0 # Информация о операционной системе
   shared_preferences: ^2.0.15 # Локальное хранилище
 
@@ -62,8 +61,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

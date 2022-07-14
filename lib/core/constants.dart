@@ -24,16 +24,16 @@ class Names {
 
 class Images {
   static String hogwarts =
-      'https://static.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png/revision/latest/scale-to-width-down/250?cb=20140530152451&path-prefix=ru';
+      'assets/images/Hogwarts.png';
 
   static String slytherin =
-      'https://static.wikia.nocookie.net/harrypotter/images/f/fe/Slytherin_.png/revision/latest/scale-to-width-down/350?cb=20210801142751&path-prefix=ru';
+      'assets/images/Slytherin.png';
   static String ravenclaw =
-      'https://static.wikia.nocookie.net/harrypotter/images/b/b8/Ravenclaw1.png/revision/latest?cb=20150807113300&path-prefix=ru';
+      'assets/images/Ravenclaw.png';
   static String gryffindor =
-      'https://static.wikia.nocookie.net/harrypotter/images/0/01/Gryffindor.png/revision/latest?cb=20150807113230&path-prefix=ru';
+      'assets/images/Gryffindor.png';
   static String hufflepuff =
-      'https://static.wikia.nocookie.net/harrypotter/images/c/c9/Hufflepuff.png/revision/latest?cb=20150807113309&path-prefix=ru';
+      'assets/images/Hufflepuff.png';
   static String emptyLogo =
-      'https://majkop.gip1.ru/foto/1b-2c5f37d1b3a12e07fc81809e13a88dd8.jpg';
+      'assets/images/Hogwarts.png';
 }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:hogwarts_hourglasses/controller/api_handler.dart';
 import 'package:hogwarts_hourglasses/models/info.dart';
@@ -15,6 +17,7 @@ class DumbledoreModeController with ChangeNotifier {
 
   void updateData() async {
     infoList = await api.fetchStats();
+
     notifyListeners();
   }
 }

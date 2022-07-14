@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hogwarts_hourglasses/controller/dumbledore_mode_conroller.dart';
 import 'package:hogwarts_hourglasses/controller/local_storage_controller.dart';
@@ -39,13 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(
               height: MediaQuery.of(context).size.width / 2,
               width: MediaQuery.of(context).size.width / 2,
-              child: CachedNetworkImage(
-                progressIndicatorBuilder: (context, url, progress) =>
-                    const CircularProgressIndicator(),
-                imageUrl: Images.hogwarts,
-                errorWidget: (context, error, status) =>
-                    const Icon(Icons.error),
-              ),
+              child: Image.asset(Images.hogwarts),
             ),
             const SizedBox(height: 10),
             Text(Names.appName,
@@ -116,7 +109,7 @@ class _SplashScreenState extends State<SplashScreen> {
           context,
           MaterialPageRoute(
             builder: (context) => ChangeNotifierProvider(
-              create: (_) => DumbledoreModeController(),
+              create: (_) => DumbledoreModeController()..updateData(),
               child: const DumbledoreScreen(),
             ),
           ),

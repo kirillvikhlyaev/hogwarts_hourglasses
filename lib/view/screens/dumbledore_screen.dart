@@ -10,7 +10,6 @@ class DumbledoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = Provider.of<DumbledoreModeController>(context);
-    c.updateData();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.appColor,

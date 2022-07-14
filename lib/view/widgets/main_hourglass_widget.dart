@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hogwarts_hourglasses/controller/score_controller.dart';
 import 'package:hogwarts_hourglasses/models/hourglass_model.dart';
@@ -20,13 +19,9 @@ class MainHourglassWidget extends StatelessWidget {
         SizedBox(
           width: MediaQuery.of(context).size.width / 7,
           height: MediaQuery.of(context).size.width / 7,
-          child: CachedNetworkImage(
-            progressIndicatorBuilder: (context, url, progress) =>
-                const CircularProgressIndicator(),
-            imageUrl: c.getImage(house),
-            errorWidget: (context, error, status) => const Icon(Icons.error),
-          ),
+          child: Image.asset(c.getImage(house)),
         ),
+        const SizedBox(height: 25),
         InkWell(
           borderRadius: BorderRadius.circular(25.0),
           onTap: () => Navigator.push(
@@ -35,6 +30,7 @@ class MainHourglassWidget extends StatelessWidget {
           ),
           child: HourglassWidget(house: house),
         ),
+        const SizedBox(height: 25),
         Text(
           '${c.getScore(house)}',
           style: const TextStyle(fontSize: 21),

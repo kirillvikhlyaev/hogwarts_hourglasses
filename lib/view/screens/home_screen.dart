@@ -24,14 +24,16 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            MainHourglassWidget(house: c.houses[0]),
-            MainHourglassWidget(house: c.houses[1]),
-            MainHourglassWidget(house: c.houses[2]),
-            MainHourglassWidget(house: c.houses[3])
-          ],
+        child: SingleChildScrollView(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              MainHourglassWidget(house: c.houses[0]),
+              MainHourglassWidget(house: c.houses[1]),
+              MainHourglassWidget(house: c.houses[2]),
+              MainHourglassWidget(house: c.houses[3])
+            ],
+          ),
         ),
       ),
     );
