@@ -1,7 +1,7 @@
 # Песочные часы факультетов Хогвартса
 <img src="/helpers/app.gif"/>
 <br>
-<h2>20 очков Гриффиндору!</h2>
+<h2>20 очков Гриффиндору! ТЗ: <a href="https://github.com/kirillvikhlyaev/hogwarts_hourglasses/blob/main/helpers/testovoe_zadanie_Flutter_Fakultetskie_chasy_Khogvards.pdf">Клик!</a></h2>
 <p>Что реализовано?</p>
 <ul>
  <li>Выбор факультета, с которого вы заходите</li>
